@@ -27,7 +27,7 @@ ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 WORKDIR /data
 
 #install required plugins
-RUN  /elasticsearch/bin/plugin --install lang-python --timeout 5m
+RUN  /elasticsearch/bin/plugin --install elasticsearch/elasticsearch-lang-python/2.4.1 --timeout 5m
 RUN  /elasticsearch/bin/plugin --install karmi/elasticsearch-paramedic --timeout 5m
 RUN  /elasticsearch/bin/plugin --install royrusso/elasticsearch-HQ --timeout 5m
 
