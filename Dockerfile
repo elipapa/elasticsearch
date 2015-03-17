@@ -16,7 +16,7 @@ RUN \
   tar xvzf $ES_PKG_NAME.tar.gz && \
   rm -f $ES_PKG_NAME.tar.gz && \
   mv /$ES_PKG_NAME /elasticsearch
-
+  
 # Define mountable directories.
 VOLUME ["/data"]
 
@@ -25,6 +25,12 @@ ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 
 # Define working directory.
 WORKDIR /data
+
+#install required plugins
+RUN  /elasticsearch/bin/plugin --install lang-python --timeout 5m
+RUN  /elasticsearch/bin/plugin --install karmi/elasticsearch-paramedic --timeout 5m
+RUN  /elasticsearch/bin/plugin --install royrusso/elasticsearch-HQ --timeout 5m
+
 
 # Define default command.
 CMD ["/elasticsearch/bin/elasticsearch"]
