@@ -30,6 +30,7 @@ WORKDIR /data
 RUN  /elasticsearch/bin/plugin --install elasticsearch/elasticsearch-lang-python/2.4.1 --timeout 5m
 RUN  /elasticsearch/bin/plugin --install karmi/elasticsearch-paramedic --timeout 5m
 RUN  /elasticsearch/bin/plugin --install royrusso/elasticsearch-HQ --timeout 5m
+RUN  /elasticsearch/bin/plugin --install elasticsearch/elasticsearch-cloud-aws/2.7.1 --timeout 5m
 
 
 # Define default command.
